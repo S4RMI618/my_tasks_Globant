@@ -1,29 +1,21 @@
 """ START PROGRAM OF GENERATE PRIME NUMBER """
 
-""" ASK UP TO WHICH NUMBER TO DISPLAY THE PROGRAM """
-final = int(input("Enter final number: "))
+count = 0
+
+def generatePrimes(n):
+    global count
+    primos = []
+    noPrimos = []
+    for i in range(2, n + 1):
+        count += 1
+        if i not in noPrimos:
+            primos.append(i)
+            for j in range(i * i, n + 1, i):
+                count += 1
+                noPrimos.append(j)
+    return primos
 
 
-""" DEVELOP """
-def generateNumbers(final):
-    """ GENERATE LIST AND COUNT, TO ADD THE PRIMES AND NON-PRIMES """
-    noPrimos= []
-    primos=[1]
-    count=2
-
-    while count <= final :
-        if not(count in noPrimos):
-            primos.append(count)
-            for x in range(final+1):
-                if not((count * x) > final):
-                    noPrimos.append(count*x)
-                else:
-                    break;
-        count +=1 
-
-""" PRINT LIST OF PRIMES NUMBERS  """
-
-def showNumbersPrimes(primos):
-    for x in range(len(primos)):
-        print(primos[x])
+print(generatePrimes(200))
+print(count)
 

@@ -17,7 +17,7 @@ while True:
         noPrimos= []
         primos=[1]
         count=2
-
+        c = 0
         """ DEVELOP """
         while count <= final :
             if not(count in noPrimos):
@@ -26,7 +26,8 @@ while True:
                     if not((count * x) > final):
                         noPrimos.append(count*x)
                     else:
-                        break;
+                        break
+                    c = c + 1
             count +=1
 
         """ PRINT LIST OF PRIMES NUMBERS  """
@@ -34,6 +35,7 @@ while True:
         for x in range(len(primos)):
             print(primos[x])
         
+        print(c)
         """ STOP THE PROGRAM  """
     elif choose == 2:
         break
